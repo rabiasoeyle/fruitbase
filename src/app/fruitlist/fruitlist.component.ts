@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SinglefruitComponent } from './singlefruit/singlefruit.component';
+import { FruitlistdataService } from '../fruitlistdata.service';
 
 @Component({
   selector: 'app-fruitlist',
@@ -10,6 +11,7 @@ import { SinglefruitComponent } from './singlefruit/singlefruit.component';
   styleUrl: './fruitlist.component.scss'
 })
 export class FruitlistComponent {
+  fruitlistdata= inject(FruitlistdataService)
   goodFruit = "green";
   badFruit = "red";
   fruitlist = [
@@ -63,4 +65,14 @@ export class FruitlistComponent {
     },
   ]
 
+  showIndex(index:number){
+    console.log(index);
+  }
+  commentLog(comment:string, index:number){
+    // console.log(comment);
+    this.fruitlist[index].reviews.push({
+      name: "Rabia",
+      text:comment,
+    });
+  }
 }
