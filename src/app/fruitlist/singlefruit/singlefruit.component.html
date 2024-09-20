@@ -8,25 +8,25 @@
             <p><b>Bewertung:</b></p>
             <div>
                 @for(count of [1,2,3,4,5]; track singleFruit){
-                    @if(singleFruit.stars>= count){
+                    <!-- @if(singleFruit.stars>= count){
                         <img src="./assets/img/stars/star.svg" alt="" srcset="">
                     }@else if(singleFruit.stars>= count-0.5){
                         <img src="./assets/img/stars/star-half.svg" alt="" srcset="">
                     }@else(){
                         <img src="./assets/img/stars/star-empty.svg" alt="" srcset="">
-                    }
+                    } -->
                     
-                    <!-- @switch (fruit.stars):{
-                        @case count:{
+                    @switch(true){
+                        @case (singleFruit.stars >= count){
                             <img src="./assets/img/stars/star.svg" alt="" srcset="">
                         }
-                        @case count-0.5:{
+                        @case (singleFruit.stars >= count-0.5){
                             <img src="./assets/img/stars/star-half.svg" alt="" srcset="">
                         }
-                        @default:{
+                        @default{
                             <img src="./assets/img/stars/star-empty.svg" alt="" srcset="">
                         }
-                    } -->
+                    }
                 }
             
                 <!-- <p [ngClass]="{'font-color-bad': singleFruit.stars <= 3, 'font-color-good' : singleFruit.stars > 3}">({{singleFruit.stars}})</p> -->
